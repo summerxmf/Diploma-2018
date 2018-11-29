@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="472.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.main.main1.MainController1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <MenuBar prefHeight="30.0" prefWidth="941.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="442.0" prefWidth="138.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_addPatient" contentDisplay="TOP" mnemonicParsing="false" onAction="#addPatients" prefHeight="88.0" prefWidth="131.0" text="Add Patient" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/addpatient.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_makeAppointment" contentDisplay="TOP" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#makeAppointment" prefHeight="88.0" prefWidth="131.0" text="Make Appointment" textAlignment="CENTER">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/addpatient.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btn_viewAppointment" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#viewAppointment" prefHeight="88.0" prefWidth="131.0" text="View Appointments" textAlignment="CENTER">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/addpatient.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btn_makeSchedule" contentDisplay="TOP" layoutX="10.0" layoutY="137.0" mnemonicParsing="false" onAction="#makeSchedule" prefHeight="88.0" prefWidth="131.0" text="Make Schedule" textAlignment="CENTER">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/addpatient.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btn_addDoctor" contentDisplay="TOP" layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#addDoctor" prefHeight="88.0" prefWidth="131.0" text="Add Doctor" textAlignment="CENTER">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/addpatient.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <TabPane prefHeight="447.0" prefWidth="724.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                  <Tab fx:id="tb_patientInfo" text="Patients Info ">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="809.0">
+                           <children>
+                              <TextField fx:id="tf_searchPatient" layoutX="58.0" layoutY="10.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="521.0" AnchorPane.topAnchor="10.0" />
+                              <Label layoutX="14.0" layoutY="14.0" text="Search" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <TableView fx:id="tv_patient" prefHeight="320.0" prefWidth="809.0">
+                                             <columns>
+                                                <TableColumn fx:id="idCol_Patient" prefWidth="68.0" text="Id" />
+                                                <TableColumn fx:id="titleCol_Patient" prefWidth="62.0" text="Title" />
+                                                <TableColumn fx:id="nameCol_Patient" prefWidth="127.0" text="Name" />
+                                                <TableColumn fx:id="dateOfBirthCol_Patient" prefWidth="127.0" text="Date Of Birth" />
+                                                <TableColumn fx:id="phoneCol_Patient" prefWidth="108.0" text="Phone" />
+                                                <TableColumn fx:id="emergPhoneCol_Patient" prefWidth="108.0" text="Emergency Phone" />
+                                                <TableColumn fx:id="emailCol_Patient" prefWidth="117.0" text="Email" />
+                                                <TableColumn fx:id="addressCol_Patient" prefWidth="106.0" text="Address" />
+                                                <TableColumn fx:id="mediHistoryCol_Patient" prefWidth="125.0" text="Meidcal History" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="809.0" spacing="10.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <children>
+                                          <Button fx:id="btn_makeAppointment" layoutX="221.0" layoutY="10.0" mnemonicParsing="false" onAction="#addPatient_PatientInfo" prefHeight="34.0" prefWidth="125.0" text="Make Appointment" />
+                                          <Button fx:id="btn_addPatient" mnemonicParsing="false" onAction="#addPatient_PatientInfo" prefHeight="40.0" prefWidth="125.0" text="Add " />
+                                          <Button fx:id="btn_deletePatient" mnemonicParsing="false" onAction="#deletePatient_PatientInfo" prefHeight="40.0" prefWidth="125.0" text="Delete" />
+                                          <Button fx:id="btn_updatePatient" mnemonicParsing="false" onAction="#updatePatient_PatientInfo" prefHeight="40.0" prefWidth="125.0" text="Edit" />
+                                          <Button fx:id="btn_refreshPatient" mnemonicParsing="false" onAction="#refreshPatient_PatientInfo" prefHeight="40.0" prefWidth="125.0" text="Refresh" />
+                                          <Button fx:id="btn_cancelPatient" mnemonicParsing="false" onAction="#cancelPatient_PatientInfo" prefHeight="40.0" prefWidth="125.0" text="Cancel" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tb_doctorInfo" text="Doctors Info ">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="809.0">
+                           <children>
+                              <TextField fx:id="tf_searchDoctor" layoutX="58.0" layoutY="10.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.rightAnchor="521.0" AnchorPane.topAnchor="10.0" />
+                              <Label layoutX="14.0" layoutY="14.0" text="Search" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                                 <children>
+                                    <TableView fx:id="tv_doctor" prefHeight="400.0" prefWidth="600.0">
+                                       <columns>
+                                          <TableColumn fx:id="idCol_Doctor" prefWidth="82.0" text="Id" />
+                                          <TableColumn fx:id="nameCol_Doctor" prefWidth="154.0" text="Name" />
+                                          <TableColumn fx:id="homephoneCol_Doctor" prefWidth="75.0" text="Home Phone" />
+                                          <TableColumn fx:id="workphoneCol_Doctor" prefWidth="75.0" text="Work Phone" />
+                                          <TableColumn fx:id="emergyphoneCol_Doctor" prefWidth="75.0" text="Emergency Phone" />
+                                          <TableColumn fx:id="emailCol_Doctor" prefWidth="75.0" text="Email" />
+                                          <TableColumn fx:id="addressCol_Doctor" prefWidth="75.0" text="Address" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="809.0" spacing="10.0">
+                                       <children>
+                                          <Button fx:id="btn_addDoctor" minHeight="-Infinity" mnemonicParsing="false" onAction="#addDoctor_DoctorInfo" prefHeight="40.0" prefWidth="125.0" text="Add " />
+                                          <Button fx:id="btn_deleteDoctor" minHeight="-Infinity" mnemonicParsing="false" onAction="#deleteDoctor_DoctorInfo" prefHeight="40.0" prefWidth="125.0" text="Delete" />
+                                          <Button fx:id="btn_refreshDoctor" minHeight="-Infinity" mnemonicParsing="false" onAction="#refreshDoctor_DoctorInfo" prefHeight="40.0" prefWidth="125.0" text="Refresh" />
+                                          <Button fx:id="btn_editDoctor" minHeight="-Infinity" mnemonicParsing="false" onAction="#editDoctor_DoctorInfo" prefHeight="40.0" prefWidth="125.0" text="Edit" />
+                                          <Button fx:id="btn_cancelDoctor" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancelDoctor_DoctorInfo" prefHeight="40.0" prefWidth="125.0" text="Cancel" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

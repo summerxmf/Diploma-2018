@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.manageDoctor.addDoctor.Controller">
+   <children>
+      <VBox layoutX="-4.0" prefHeight="512.0" prefWidth="408.0">
+         <children>
+            <GridPane hgap="10.0" vgap="10.0">
+               <children>
+                  <Label text="First Name" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="tf_firstName" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="First Name" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label layoutX="87.0" layoutY="17.0" text="Last Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="tf_lastName" layoutX="145.0" layoutY="11.0" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label layoutX="53.0" layoutY="57.0" text="Home Phone" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="tf_homePhone" layoutX="119.0" layoutY="51.0" maxWidth="-Infinity" prefHeight="27.0" prefWidth="246.0" promptText="Home Phone" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label layoutX="39.0" layoutY="97.0" text="Work Phone" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="tf_workPhone" layoutX="119.0" layoutY="91.0" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Work Phone" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="tf_emergcyPhone" layoutX="119.0" layoutY="131.0" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Emergency Phone" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin></TextField>
+                  <Label layoutX="43.0" layoutY="137.0" text="Emergency Phone" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="13.0" layoutY="217.0" text="Date of Birth" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <DatePicker fx:id="dp_dateOfBirth" promptText="MM/dd/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Email" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_email" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Emergency Phone" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Address_Unit" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_addressUnit" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Address_Unit" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Address_Street" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_addressStreet" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Address_Street" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Address_City" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_addressCity" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" promptText="Address_City" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Address_State" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cb_state" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="118.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="484.0" minWidth="10.0" prefWidth="240.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </GridPane>
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="77.0" prefWidth="408.0" spacing="20.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="btn_save" mnemonicParsing="false" onAction="#addDoctor" prefHeight="46.0" prefWidth="90.0" stylesheets="/UI/manageDoctor/addDoctor/adddoctor.css" text="Save">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_clear" layoutX="114.0" layoutY="12.0" mnemonicParsing="false" onAction="#clearCells" prefHeight="46.0" prefWidth="90.0" stylesheets="/UI/manageDoctor/addDoctor/adddoctor.css" text="Clear">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#cancel" prefHeight="45.0" prefWidth="90.0" stylesheets="/UI/manageDoctor/addDoctor/adddoctor.css" text="Cancel">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

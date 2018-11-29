@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.manageAppointments.viewAppointments.ViewAppointments">
+   <children>
+      <VBox prefHeight="500.0" prefWidth="839.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="37.0" prefWidth="819.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="cb_doctor" prefHeight="30.0" prefWidth="174.0" promptText="Doctor" />
+                  <Button fx:id="btn_clearFilterDoctor" mnemonicParsing="false" onAction="#clearFilterDoctor" prefHeight="30.0" prefWidth="153.0" text="Clear Filter" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="819.0" spacing="10.0">
+               <children>
+                  <DatePicker fx:id="dp_date" prefHeight="30.0" promptText="Date" />
+                  <Button fx:id="btn_clearFilterDate" mnemonicParsing="false" onAction="#clearFilterDate" prefHeight="30.0" prefWidth="153.0" text="Clear Filter" />
+               </children>
+            </HBox>
+            <TableView fx:id="tv_appointment" prefHeight="287.0" prefWidth="839.0">
+               <columns>
+                  <TableColumn fx:id="idCol" prefWidth="68.0" text="Id" />
+                  <TableColumn fx:id="dateCol" prefWidth="101.0" text="Date" />
+                  <TableColumn fx:id="doctorCol" prefWidth="120.0" text="Doctor Name" />
+                  <TableColumn fx:id="patientCol" prefWidth="168.0" text="Patient Name" />
+                  <TableColumn fx:id="startTimeCol" prefWidth="101.0" text="Start Time" />
+                  <TableColumn fx:id="patientDetailCol" minWidth="0.0" prefWidth="41.0" text="Patient Detail" />
+                  <TableColumn fx:id="cancelCol" prefWidth="196.0" text="Cancel" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="809.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btn_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="40.0" prefWidth="121.0" text="Refresh" />
+                  <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="120.0" text="Cancel" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
