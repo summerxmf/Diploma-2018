@@ -4,6 +4,8 @@ package UI.makeStaffScheule.addWorkTime;
 import UI.UIhelper.AlertDialog;
 import UI.model.ModelSchedule;
 import database.DBHelper;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,13 +18,8 @@ import java.util.ResourceBundle;
 public class AddWorkTime implements Initializable {
     String[] allTimeSlots;
 
-
-
     private int schdStartTimeIndex ;
     private int schdEndTimeIndex;
-
-
-
 
     @FXML
     private Label lb_showDate;
@@ -60,6 +57,7 @@ public class AddWorkTime implements Initializable {
 
     @FXML
     void selectPartially(ActionEvent event) {
+
         cb_startTime.setDisable(false);
         cb_endTime.setDisable(false);
 
@@ -83,9 +81,6 @@ public class AddWorkTime implements Initializable {
             }
         }
 
-
-//            ExtractDataSchedule.getInstance().schdStartTime = new Date("9:00");
-//            ExtractDataSchedule.getInstance().schdStartTime = new Date("18:00");
             String sql = "INSERT INTO SCHEDULES VALUES " +
                     " (?, ? ,?, ?,?, ? ,?, ?,?, ? ,?, ?,?, ? ,?, ?,?, ? ,?, ?,?, ? ,?, ?,?, ? ,?, ?,?, ? ,?, ?," +
                     "?, ? ,?, ?, ?,?)";
@@ -96,8 +91,6 @@ public class AddWorkTime implements Initializable {
                     ModelSchedule.getInstance().schdMonth + "-" +
                    ModelSchedule.getInstance().schdDay;
             params[1] = Integer.toString(ModelSchedule.getInstance().schdDoctor.getDoctorId());
-
-
 
             for(int i = 0; i<36; i++){
                 params[i+2] =Integer.toString(-1);
@@ -115,18 +108,13 @@ public class AddWorkTime implements Initializable {
 
                 ModelSchedule.getInstance().schdAdded =true;
 
-
-
                 Stage stage = (Stage) btn_save.getScene().getWindow();
                 stage.close();
-
                 return;
-
             }
             else {
                 AlertDialog.error(null, "Failed!" );
             }
-
     }
 
     @FXML
@@ -141,8 +129,6 @@ public class AddWorkTime implements Initializable {
         lb_showDate.setText("Date: " + ModelSchedule.getInstance().schdMonth+ "-"+
                 ModelSchedule.getInstance().schdDay + "-" +
                 ModelSchedule.getInstance().schdMonth);
-
-
     }
 
     private void initializeStartTimeComboBox(int indexEnd) {
@@ -154,16 +140,16 @@ public class AddWorkTime implements Initializable {
             cb_startTime.getItems().add(allTimeSlots[i]);
         }
 
-//        cb_startTime.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-//                if (cb_startTime.getSelectionModel().getSelectedIndex() != -1) {
-//                    schdStartTimeIndex = (int) newValue;
-//                    initializeEndTimeComboBox((int) newValue + 1);
-//                }
-//            }
-//        });
-
+        // Make sure cb_end time will only show time slots after start time
+        cb_startTime.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if (cb_startTime.getSelectionModel().getSelectedIndex() != -1) {
+                    schdStartTimeIndex = (int) newValue;
+                    initializeEndTimeComboBox((int) newValue + 1);
+                }
+            }
+        });
     }
 
     private void initializeEndTimeComboBox(int indexStart) {

@@ -98,17 +98,17 @@ public class MainSchedule implements Initializable {
 
 
 
-
+  // will be implemented in next stage
     @FXML
     void exportExcel(ActionEvent event) {
 
     }
-
+    // will be implemented in next stage
     @FXML
     void exportPDF(ActionEvent event) {
 
     }
-
+    // Need implemented in next stage
     @FXML
     void goToTableView(ActionEvent event) {
 
@@ -138,8 +138,6 @@ public class MainSchedule implements Initializable {
 
         // Make empty calendar
         calendarGenerate();
-
-
     }
 
     private void initializeDoctorListView() {
@@ -257,18 +255,14 @@ public class MainSchedule implements Initializable {
          cb_selectedMonth.getItems().addAll(monthsArr);
 
          // Select the first MONTH as default
-
          cb_selectedMonth.getSelectionModel().select(Calendar.getInstance().get(Calendar.MONTH));
 
-
+         // Update the lb_month label to show the Month when initialisation
          lb_month.setText("Month: "+cb_selectedMonth.getValue());
-
 
          // Update the selectedMonth
          ModelSchedule.getInstance().schdMonth = cb_selectedMonth.getSelectionModel().getSelectedIndex()+1;
          System.out.println(ModelSchedule.getInstance().schdMonth);
-
-
 
          // Add event listener to each month list item, allowing user to change months
          cb_selectedMonth.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
@@ -289,45 +283,15 @@ public class MainSchedule implements Initializable {
                  }
              }
          });
-//         new ChangeListener<String>() {
-//
-//             @Override
-//             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-//
-//                 // Necessary to check for null because change listener will
-//                 // also detect clear() calls
-//                 if (newValue != null) {
-//
-//                     // Show selected/current month above calendar
-//                     lb_month.setText("Month: " + newValue);
-//
-//                     // Update the selected month
-//                     ModelSchedule.getInstance().schdMonth = cb_selectedMonth.getSelectionModel().getSelectedIndex();
-//
-//                     System.out.println(ModelSchedule.getInstance().schdMonth);
-//
-//                     if(lv_selectedDoctor.getSelectionModel().getSelectedItem()==null){
-//                         loadCalendarLabels();
-//                     }else {
-//                         repaintLabels();
-//
-//                     }
-//                 }
-//
-//             }
-//         });
      }
 
     public void calendarGenerate(){
         initializeCalendarWeekdayHeader();
         initializeCalendarGrid();
         loadCalendarLabels();
-
-
     }
 
     public void initializeCalendarWeekdayHeader(){
-
         // 7 days in a week
         int weekdays = 7;
 
@@ -338,14 +302,10 @@ public class MainSchedule implements Initializable {
 
             // Make new pane and label of weekday
             StackPane pane = new StackPane();
-//            pane.getStyleClass().add("weekday-header");
 
             // Make panes take up equal space
             HBox.setHgrow(pane, Priority.ALWAYS);
             pane.setMaxWidth(Double.MAX_VALUE);
-
-            // Note: After adding a label to this, it tries to resize itself..
-            // So I'm setting a minimum width.
             pane.setPrefWidth(weekdayHeader.getPrefWidth()/7);
 
             // Add it to the header
@@ -389,14 +349,13 @@ public class MainSchedule implements Initializable {
             calendarGrid.getRowConstraints().add(row);
         }
     }
-    // Events
+    // Events --add work time event to the lables
     private void addEvent(VBox day) {
+        // Must choose a particular doctor to add work time
         if(lv_selectedDoctor.getSelectionModel().getSelectedItem() == null){
             AlertDialog.error(null, "Please select a doctor!");
             return;
         }
-
-        // Purpose - Add event to a day
 
         // Do not add events to days without labels
         if(!day.getChildren().isEmpty()) {
@@ -408,7 +367,7 @@ public class MainSchedule implements Initializable {
             // Store event day and month in data singleton
             ModelSchedule.getInstance().schdDay = Integer.parseInt(lbl.getText());
 
-            // Open add event view
+            // Open add work time window
             new LoadWindow().loadWindow("/UI/makeStaffScheule/addWorkTime/addWorkTime.fxml" , "Add Schedule");
         }
     }
@@ -417,7 +376,6 @@ public class MainSchedule implements Initializable {
 
         // Note: Java's Gregorian Calendar class gives us the right
         // "first day of the month" for a given calendar & month
-        // This accounts for Leap Year
         int year = ModelSchedule.getInstance().schdYear;
         int month = ModelSchedule.getInstance().schdMonth-1;
 
@@ -439,21 +397,14 @@ public class MainSchedule implements Initializable {
             VBox day = (VBox) node;
 
             day.getChildren().clear();
-            day.setStyle("-fx-backgroud-color: white");
-            day.setStyle("-fx-font: 14px \"System\" ");
 
             // Start placing labels on the first day for the month
             if (gridCount < offset) {
                 gridCount++;
-                // Darken color of the offset days
-                day.setStyle("-fx-background-color: #E9F2F5");
             } else {
 
                 // Don't place a label if we've reached maximum label for the month
-                if (lblCount > daysInMonth) {
-                    // Instead, darken day color
-                    day.setStyle("-fx-background-color: #E9F2F5");
-                } else {
+                if (lblCount <= daysInMonth) {
 
                     // Make a new day label
                     Label lbl = new Label(Integer.toString(lblCount));
@@ -475,6 +426,8 @@ public class MainSchedule implements Initializable {
         }
     }
 
+    // Refresh lables after adding a work time to a doctor,
+    // A checked check box will show if added.
        public void repaintLabels() {
            int year = ModelSchedule.getInstance().schdYear;
            int month = ModelSchedule.getInstance().schdMonth-1;
@@ -500,15 +453,11 @@ public class MainSchedule implements Initializable {
                // Start placing labels on the first day for the month
                if (gridCount < offset) {
                    gridCount++;
-                   // Darken color of the offset days
-                   day.setStyle("-fx-background-color: #E9F2F5");
                } else {
 
                    // Don't place a label if we've reached maximum label for the month
-                   if (lblCount > daysInMonth) {
-                       // Instead, darken day color
-                       day.setStyle("-fx-background-color: #E9F2F5");
-                   } else {
+                   // Don't place a label if we've reached maximum label for the month
+                   if (lblCount <= daysInMonth) {
 
                        if (HasMadeSchedule(lblCount)) {
 
@@ -522,13 +471,13 @@ public class MainSchedule implements Initializable {
            }
        }
 
+       // To see if a particular day , has work time for the particular doctor
     private  boolean HasMadeSchedule(int schdDay){
         int year = ModelSchedule.getInstance().schdYear;
         int month = ModelSchedule.getInstance().schdMonth;
         String schdDate = Integer.toString(year)+ "-"+ Integer.toString(month) + "-" + schdDay;
 
         int schdDoctorId =ModelSchedule.getInstance().schdDoctor.getDoctorId();
-
 
         String sql = "SELECT * FROM SCHEDULES WHERE DOCTORID= ? AND SCHDDATE = ?";
         String []params = {Integer.toString(schdDoctorId), schdDate };
@@ -538,11 +487,8 @@ public class MainSchedule implements Initializable {
             if (rs.next()){
                 return true;
             }
-
-
         }catch (Exception e){
             Logger.getLogger(MainController1.class.getName()).log(Level.SEVERE, null, e);
-
 
         }finally {
             DBHelper.close(DBHelper.getRs(),DBHelper.getPs(), DBHelper.getCon());
@@ -552,28 +498,6 @@ public class MainSchedule implements Initializable {
     }
 }
 
-
-
-
-
-
-
-//
-//    private void showWorkTime(int dayOfDate, String startTime, String endTime){
-//        for(Node node: calendarGrid.getChildren()){
-//            VBox day = (VBox)node;
-//            if(!day.getChildren().isEmpty()){
-//                day.getChildren().clear();
-//
-//                Label lbWorkTime = new Label();
-//                lbWorkTime.setText(Integer.toString(dayOfDate)+"\n"+
-//                        startTime +" - " +endTime
-//                );
-//                day.getChildren().add(lbWorkTime);
-//            }
-//        }
-//
-//    }
 
 
 

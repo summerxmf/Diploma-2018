@@ -489,11 +489,11 @@ public class MakeAppointment implements Initializable {
         try {
             rs = DBHelper.executeQuery(sql, null);
             while (rs.next()) {
-                int id = rs.getInt("doctorid");
+                int id = rs.getInt("doctorId");
                 String name = rs.getString("name");
-                String homephone = rs.getString("homephone");
-                String workphone = rs.getString("workphone");
-                String emergyphone = rs.getString("emergphone");
+                String homephone = rs.getString("homePhone");
+                String workphone = rs.getString("workPhone");
+                String emergyphone = rs.getString("emergPhone");
                 String email = rs.getString("email");
                 String address = rs.getString("address");
                 observableList.add(new Doctor(id, name, homephone, workphone, emergyphone, email, address));
@@ -580,7 +580,8 @@ public class MakeAppointment implements Initializable {
         ResultSet rs = DBHelper.executeQuery(sql, params);
         try{
             while (rs.next()){
-                if(rs.getInt("_1")==0) btn_900.setVisible(true);
+                if(rs.getInt("_1")==0){ btn_900.setVisible(true); System.out.println("true");}
+
                 if(rs.getInt("_2")==0) btn_915.setVisible(true);
                 if(rs.getInt("_3")==0) btn_930.setVisible(true);
                 if(rs.getInt("_4")==0) btn_945.setVisible(true);

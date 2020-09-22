@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Patient {
+public class Patient implements Person {
     private SimpleIntegerProperty patientId;
     private SimpleStringProperty title;
     private SimpleStringProperty name;
@@ -50,6 +50,8 @@ public class Patient {
     public String getName() {
         return name.get();
     }
+
+
 
     public String getDateOfBirth() {
         return dateOfBirth.get();

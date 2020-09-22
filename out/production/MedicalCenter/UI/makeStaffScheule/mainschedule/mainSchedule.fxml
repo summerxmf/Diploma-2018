@@ -67,7 +67,7 @@
                <children>
                   <VBox prefHeight="600.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="600.0" prefWidth="597.0" stylesheets="@../../../../../../Downloads/JavaFxCalendar_v0_4/AcademicCalendarLU/src/academiccalendar/ui/style/scrollbarStyle.css" vbarPolicy="ALWAYS">
+                        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="600.0" prefWidth="597.0"  vbarPolicy="ALWAYS">
                            <content>
                               <VBox prefHeight="600.0" prefWidth="388.0">
                                  <children>

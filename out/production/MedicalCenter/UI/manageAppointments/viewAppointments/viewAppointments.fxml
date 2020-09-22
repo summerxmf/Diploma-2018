@@ -46,8 +46,8 @@
             </TableView>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="809.0" spacing="10.0">
                <children>
-                  <Button fx:id="btn_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="40.0" prefWidth="121.0" text="Refresh" />
-                  <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="120.0" text="Cancel" />
+                  <Button fx:id="btn_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="38.0" prefWidth="141.0" text="Refresh" />
+                  <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#cancel" prefHeight="38.0" prefWidth="142.0" text="Cancel" />
                </children>
                <VBox.margin>
                   <Insets />

@@ -32,14 +32,6 @@ import java.util.logging.Logger;
 
 
 public class SelectPatient implements Initializable {
-//    // Controllers
-//
-//    private MakeAppointment mainController ;
-//
-//    //Set main controller
-//    public void setMakeAppointment(MakeAppointment mainController) {
-//        this.mainController = mainController ;
-//    }
 
     ObservableList<Patient> listPatient = FXCollections.observableArrayList();
     Doctor apptDoctor ;
@@ -98,8 +90,6 @@ public class SelectPatient implements Initializable {
 
     @FXML
     private TableColumn<Patient, String> emergPhoneCol;
-
-
 
 
     @FXML
@@ -267,10 +257,6 @@ public class SelectPatient implements Initializable {
         sortedList.comparatorProperty().bind(tv_patient.comparatorProperty());
         tv_patient.setItems(sortedList);
     }
-
-
-
-
 
 }
 

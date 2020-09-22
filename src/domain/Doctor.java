@@ -3,7 +3,9 @@ package domain;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Doctor {
+import java.time.Period;
+
+public class Doctor implements Person {
     private SimpleIntegerProperty doctorId;
     private SimpleStringProperty name;
     private SimpleStringProperty homePhone;

@@ -72,7 +72,7 @@
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../icon/addpatient.jpg" />
+                              <Image url="@../../icon/makeappointment.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -82,9 +82,9 @@
                         <Font size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="36.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../icon/addpatient.jpg" />
+                              <Image url="@../../icon/appointment-icon.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -96,7 +96,7 @@
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../icon/addpatient.jpg" />
+                              <Image url="@../../icon/Makeschedule.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -108,7 +108,7 @@
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../icon/addpatient.jpg" />
+                              <Image url="@../../icon/addDoctor.jpg" />
                            </image>
                         </ImageView>
                      </graphic>

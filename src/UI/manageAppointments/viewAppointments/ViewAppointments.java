@@ -1,10 +1,12 @@
 package UI.manageAppointments.viewAppointments;
 
+import UI.UIhelper.AlertDialog;
 import UI.main.main1.MainController1;
 import UI.model.ModelSchedule;
 import database.DBHelper;
 import domain.Appointment;
 import domain.Doctor;
+import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -22,6 +24,7 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -33,7 +36,6 @@ import java.util.logging.Logger;
 public class ViewAppointments implements Initializable {
     ObservableList<Appointment> listAppointments;
     FilteredList<Appointment> filteredData;
-    private final String[] allTimeSlots = ModelSchedule.getInstance().allTimeSlots;
 
     ResultSet rs ;
 
@@ -96,13 +98,14 @@ public class ViewAppointments implements Initializable {
     void cancel(ActionEvent event) {
         Stage stage = (Stage) btn_cancel.getScene().getWindow();
         stage.close();
-
     }
+
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         initilizeDoctorComboBox();
         innitialize_tv_appointment();
         initializeDateFilter();
@@ -202,17 +205,20 @@ public class ViewAppointments implements Initializable {
             rs = DBHelper.executeQuery(sql, params);
 
             while(rs.next()){
-                int id = rs.getInt(1);
+                int id = rs.getInt("apptId");
                 Date date  = rs.getDate(2);
                 int doctorId = rs.getInt(3);
                 String doctorName = rs.getString(4);
                 int patientId = rs.getInt(5);
                 String patientName = rs.getString(6);
-                int slot = rs.getInt(5);
-                String startTime = ModelSchedule.getInstance().allTimeSlots[slot-1];
+                int slot = rs.getInt("slot");
+
+                //String startTime = ModelSchedule.getInstance().allTimeSlots[slot-1];
+
+                String startTime = ModelSchedule.allTimeSlots[slot-1];
 
                 // Initially add all data to listAppointment
-                listAppointments.add(new Appointment(id, date,doctorId, doctorName, patientId, patientName, startTime));
+                listAppointments.add(new Appointment(id, date,doctorId, doctorName, patientId, patientName, slot ,startTime));
 
             }
 

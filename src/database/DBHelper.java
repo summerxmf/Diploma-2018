@@ -151,8 +151,8 @@ public class DBHelper {
 
     }
 
-    //调用存储过程
-    // sql  ig{call 过程(?,?,?)
+    //
+    // sql  ig
     public static void callProl(String sql, String[] parameters){
         con = getConnection();
         try{

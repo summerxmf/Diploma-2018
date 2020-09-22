@@ -37,7 +37,7 @@ public class Appointment {
     }
 
 
-    public Appointment(int apptId, Date date, int doctorId, String doctorName, int patientId, String patientName,String startTime){
+    public Appointment(int apptId, Date date, int doctorId, String doctorName, int patientId, String patientName,int slot,String startTime){
         this.apptId = new SimpleIntegerProperty(apptId);
         this.doctorId = new SimpleIntegerProperty(doctorId);
         this.doctorName = new SimpleStringProperty(doctorName);
@@ -45,6 +45,7 @@ public class Appointment {
         this.patientId = new SimpleIntegerProperty(patientId);
         this.patientName = new SimpleStringProperty(patientName);
         this.date = new SimpleStringProperty(new SimpleDateFormat("yyyy-MM-dd").format(date));
+        this.slot = new SimpleIntegerProperty(slot);
         this.startTime = new SimpleStringProperty(startTime);
         this.btnPatientDetail = new Button("Patient Detail");
         btnPatientDetail.setOnAction(new EventHandler<ActionEvent>() {
@@ -127,7 +128,7 @@ public class Appointment {
         }
     }
     private void updateSchedule(int doctorId, Date date, int slot){
-       String sql = "UPDATE SCHEDULES SET _"+ slot+" =  0  WHERE DOCTORID = ? AND SCHDDATE = ?";
+       String sql = "UPDATE SCHEDULES SET _"+ slot+" = 0  WHERE DOCTORID = ? AND SCHDDATE = ?";
        String[] params = {Integer.toString(doctorId),new SimpleDateFormat("yyyy-MM-dd").format(date)};
        if(DBHelper.executeUpdate(sql, params)){
            System.out.println("Successfully update the table schedules");
